@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "types": ["vite/client", "vue"],
+    "skipLibCheck": true,
+    "moduleResolution": "bundler"
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    }
+  ]
+}
