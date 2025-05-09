@@ -1,30 +1,35 @@
-<script setup lang="ts">
-defineProps<{
-  msg: string
-}>()
-</script>
-
 <template>
-  <div class="greetings">
-    <h1>{{ msg }}</h1>
+  <div>
+    <button @click="fetchData">Fetch Posts</button>
+    <div v-if="loading">Loading...</div>
+    <div v-if="error">{{ error }}</div>
+    <ul v-if="posts.length">
+      <li v-for="post in posts" :key="post.id">
+        <strong>{{ post.title }}</strong>
+        <p>{{ post.body }}</p>
+      </li>
+    </ul>
   </div>
 </template>
 
-<style scoped>
-h1 {
-  font-weight: 500;
-  font-size: 2.6rem;
-  position: relative;
-  top: -10px;
-}
+<script setup>
+import { ref } from 'vue'
 
-.greetings h1 {
-  text-align: center;
-}
+const posts = ref([])
+const loading = ref(false)
+const error = ref(null)
 
-@media (min-width: 1024px) {
-  .greetings h1 {
-    text-align: left;
+const fetchData = async () => {
+  loading.value = true
+  error.value = null
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+    if (!response.ok) throw new Error('Failed to fetch posts')
+    posts.value = await response.json()
+  } catch (err) {
+    error.value = err.message
+  } finally {
+    loading.value = false
   }
 }
-</style>
+</script>
