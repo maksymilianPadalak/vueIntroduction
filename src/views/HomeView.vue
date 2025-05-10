@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import MyFirstComponent from '../components/MyFirstComponent.vue'
+import Navigation from '@/components/Navigation.vue'
 </script>
 
 <template>
   <main>
-    <MyFirstComponent msg="Hello World" />
+    <h1>HOME VIEW</h1>
   </main>
 </template>
+
+<style scoped></style>
