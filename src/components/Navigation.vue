@@ -83,7 +83,7 @@ const isNavigationOpened = ref(false)
 
 const navItems: { title: string; url: string }[] = [
   { title: 'Home', url: '/' },
-  { title: 'Blog', url: '/blog' },
+  { title: 'Users', url: '/users' },
   { title: 'Pricing', url: '/pricing' },
 ]
 </script>
