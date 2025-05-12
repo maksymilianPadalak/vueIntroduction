@@ -25,7 +25,7 @@
 <script setup lang="ts">
 import { inject } from 'vue'
 import { storeToRefs } from 'pinia'
-import { useCounterStore } from '@/stores/useAuthenticationStore'
+import { useCounterStore } from '@/stores/useCounterStore'
 import type { WelcomeTitleObject } from '@/types'
 
 const store = useCounterStore()

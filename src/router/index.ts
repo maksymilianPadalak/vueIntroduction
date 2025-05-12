@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import PricingView from '@/views/PricingView.vue'
 import UsersView from '@/views/UsersView.vue'
+import { canUserAccess } from '@/composables/canUSerAccess'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,6 +23,14 @@ const router = createRouter({
       component: PricingView,
     },
   ],
+})
+
+router.beforeEach((to) => {
+  if (to.name === 'users') {
+    return canUserAccess()
+  }
+
+  console.error('NO ACCESS')
 })
 
 export default router
