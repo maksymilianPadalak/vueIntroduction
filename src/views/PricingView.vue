@@ -1,3 +1,7 @@
 <template>
-  <h1>PRICING VIEW</h1>
+  <PricingForm></PricingForm>
 </template>
+
+<script setup lang="ts">
+import PricingForm from '@/components/PricingForm.vue'
+</script>
